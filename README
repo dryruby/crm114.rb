@@ -1,0 +1,46 @@
+== Welcome to CRM114 Controllable Regex Mutilator for Ruby
+
+This is a Ruby interface to the CRM114 Controllable Regex Mutilator, an
+advanced and fast text classifier that uses sparse binary polynomial
+matching with a Bayesian Chain Rule evaluator and a hidden Markov model to
+categorize data with up to a 99.87% accuracy.
+
+* http://crm114.sourceforge.net/
+* http://en.wikipedia.org/wiki/CRM114
+* http://en.wikipedia.org/wiki/Dr_Strangelove
+* http://www.paulgraham.com/wsy.html
+
+== Download
+
+* http://rubyforge.org/projects/crm114
+* gem install crm114
+* svn checkout svn://rubyforge.org/var/svn/crm114
+
+== Dependencies
+
+Requires that the CRM114 engine is installed. Specifically, the 'crm' binary
+should be accessible in the current user's PATH environment variable.
+
+== Usage
+
+  require 'crm114'
+  crm = Classifier::CRM114.new([:interesting, :boring])
+  crm.train! :interesting, 'Some data set with a decent signal to noise ratio.'
+  crm.train! :boring, 'Pig latin, as in lorem ipsum dolor sit amet.'
+  crm.classify 'Lorem ipsum'       => [:boring, 0.99]
+  crm.interesting? 'Lorem ipsum'   => false
+  crm.boring? 'Lorem ipsum'        => true
+
+== Related Projects
+
+* http://rubyforge.org/projects/bishop/
+* http://rubyforge.org/projects/classifier/
+
+== Authors
+
+* Arto Bendiken (mailto:arto.bendiken@gmail.com)
+
+== License
+
+This library is released under the terms of the MIT license. See the
+accompanying LICENSE file for more information.
