@@ -20,7 +20,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.email              = 'arto.bendiken@gmail.com'
 
   gem.platform           = Gem::Platform::RUBY
-  gem.files              = %w(CHANGELOG LICENSE README README.rdoc Rakefile VERSION lib/crm114.rb test/test_code_or_text.rb test/test_crm114.rb)
+  gem.files              = %w(LICENSE README README.rdoc Rakefile VERSION lib/crm114.rb test/test_code_or_text.rb test/test_crm114.rb)
   gem.files             -= %w(README.rdoc) # only for GitHub
   gem.bindir             = %q(bin)
   gem.executables        = %w()
