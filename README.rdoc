@@ -74,6 +74,8 @@ directly from GitHub as follows:
 == Resources
 
 * http://rubyforge.org/projects/crm114
+* http://raa.ruby-lang.org/project/crm114/
+* http://www.ohloh.net/p/crm114-ruby
 * http://www.elegantchaos.com/node/129 (crm.py)
 * http://rubyforge.org/projects/classifier
 * http://rubyforge.org/projects/bishop
