@@ -1,5 +1,5 @@
 # Author::    Arto Bendiken (mailto:arto.bendiken@gmail.com)
-# Copyright:: Copyright (c) 2006 Arto Bendiken.
+# Copyright:: Copyright (c) 2006-2009 Arto Bendiken.
 # License::   MIT
 
 module Classifier
