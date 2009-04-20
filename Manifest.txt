@@ -1,8 +1,0 @@
-CHANGELOG
-LICENSE
-Manifest.txt
-README
-Rakefile
-lib/crm114.rb
-test/test_code_or_text.rb
-test/test_crm114.rb
