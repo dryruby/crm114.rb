@@ -3,7 +3,7 @@
 
 GEMSPEC = Gem::Specification.new do |gem|
   gem.name               = 'crm114'
-  gem.version            = '1.0.0.1'
+  gem.version            = '1.0.1'
   gem.date               = '2009-04-20'
   gem.homepage           = 'http://crm114.rubyforge.org/'
   gem.license            = 'MIT' if gem.respond_to?(:license=)
