@@ -6,7 +6,7 @@ module Classifier
 
   class CRM114
 
-    VERSION = '1.0.0'
+    VERSION = '1.0.1'
 
     CLASSIFICATION_TYPE = '<osb unique microgroom>'
     FILE_EXTENSION = '.css'
