@@ -5,7 +5,8 @@ advanced and fast text classifier that uses sparse binary polynomial
 matching with a Bayesian Chain Rule evaluator and a hidden Markov model to
 categorize data with up to a 99.87% accuracy.
 
-* http://rubyforge.org/projects/crm114
+* http://crm114.rubyforge.org
+* http://github.com/bendiken/crm114
 * http://ar.to/2006/07/spam-filters-alien-technology-and-ruby-on-rails
 
 
@@ -41,7 +42,8 @@ Have a look at the included unit tests for more comprehensive examples.
 == Dependencies
 
 Requires the CRM114 binaries to be installed. Specifically, the '+crm+'
-binary should be accessible in the current user's PATH environment variable.
+binary should be accessible in the current user's +PATH+ environment
+variable.
 
 
 == Download
@@ -71,9 +73,10 @@ directly from GitHub as follows:
 
 == Resources
 
+* http://rubyforge.org/projects/crm114
 * http://www.elegantchaos.com/node/129 (crm.py)
-* http://rubyforge.org/projects/classifier/
-* http://rubyforge.org/projects/bishop/
+* http://rubyforge.org/projects/classifier
+* http://rubyforge.org/projects/bishop
 
 
 == Author
