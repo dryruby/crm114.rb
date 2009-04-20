@@ -1,41 +1,19 @@
-$:.unshift(File.expand_path(File.dirname(__FILE__) + '/lib'))
-
+#!/usr/bin/env ruby
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), 'lib')))
 require 'rubygems'
+require 'rakefile' # http://github.com/bendiken/rakefile
 require 'crm114'
 
-PKG_NAME    = 'crm114'
-PKG_VERSION = Classifier::CRM114::VERSION
-PKG_DESC    = 'Ruby interface to the CRM114 Controllable Regex Mutilator text classification engine.'
-PKG_URL     = 'http://crm114.rubyforge.org/'
+desc "Generate YARD documentation (with title)"
+task :yardocs => :yardoc do
+  # FIXME: fork YARD and patch it to allow the title to be configured
+  sh "sed -i 's/YARD Documentation/CRM114.rb Documentation/' doc/yard/index.html"
 
-PKG_AUTHOR  = 'Arto Bendiken'
-PKG_EMAIL   = 'arto.bendiken@gmail.com'
-
-##############################################################################
-
-require 'hoe'
-
-Hoe.new(PKG_NAME, PKG_VERSION) do |p|
-  p.author = PKG_AUTHOR
-  p.email = PKG_EMAIL
-  p.url = PKG_URL
-  p.summary = PKG_DESC
-  p.description = p.paragraphs_of('README', 1).first
-  p.changes = p.paragraphs_of('CHANGELOG', 0..1).join("\n\n")
-  p.spec_extras = { :rdoc_options => ['--main', 'README'] }
-end
-
-##############################################################################
-
-def egrep(pattern, files)
-  Dir[files].each do |file|
-    File.open(file).readlines.each_with_index do |line, lineno|
-      puts "#{file}:#{lineno + 1}:#{line}" if line =~ pattern
-    end
-  end
-end
-
-desc 'Look for TODO and FIXME tags in the code base.'
-task :todo do
-  egrep /#.*(FIXME|TODO)/, '**/*.rb'
+  # TODO: investigate why YARD doesn't auto-link URLs like RDoc does
+  html = File.read(file = 'doc/yard/readme.html')
+  html.gsub!(/>(http:\/\/)([\w\d\.\/]+)/, '><a href="\1\2" target="_blank">\2</a>')
+  html.gsub!(/(http:\/\/ar\.to\/[\w\d\.\/]+)/, '<a href="\1">\1</a>')
+  html.gsub!(/(http:\/\/ar\.to)([^\/]+)/, '<a href="\1" target="_top">ar.to</a>\2')
+  html.gsub!(/(mailto:[^\)]+)/, '<a href="\1">\1</a>')
+  File.open(file, 'wb') { |f| f.puts html }
 end
