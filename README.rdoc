@@ -1,6 +1,6 @@
 = CRM114 Controllable Regex Mutilator for Ruby
 
-*CRM114.rb* is a Ruby interface to the CRM114 Controllable Regex Mutilator,
+CRM114.rb is a Ruby interface to the CRM114 Controllable Regex Mutilator,
 an advanced and fast text classifier that uses sparse binary polynomial
 matching with a Bayesian Chain Rule evaluator and a hidden Markov model to
 categorize data with up to a 99.87% accuracy.
