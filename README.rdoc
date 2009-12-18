@@ -1,7 +1,7 @@
 = CRM114 Controllable Regex Mutilator for Ruby
 
-This is a Ruby interface to the CRM114 Controllable Regex Mutilator, an
-advanced and fast text classifier that uses sparse binary polynomial
+*CRM114.rb* is a Ruby interface to the CRM114 Controllable Regex Mutilator,
+an advanced and fast text classifier that uses sparse binary polynomial
 matching with a Bayesian Chain Rule evaluator and a hidden Markov model to
 categorize data with up to a 99.87% accuracy.
 
@@ -65,11 +65,6 @@ official release from RubyForge, do:
 
   % [sudo] gem install crm114
 
-To use the very latest bleeding-edge development version, install the gem
-directly from GitHub as follows:
-
-  % [sudo] gem install bendiken-crm114 -s http://gems.github.com
-
 
 == Resources
 
@@ -88,5 +83,5 @@ directly from GitHub as follows:
 
 == License
 
-CRM114 for Ruby is free and unencumbered public domain software. For more
+CRM114.rb is free and unencumbered public domain software. For more
 information, see http://unlicense.org or the accompanying UNLICENSE file.
