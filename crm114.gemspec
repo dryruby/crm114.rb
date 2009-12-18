@@ -6,7 +6,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.version            = '1.0.1'
   gem.date               = '2009-04-20'
   gem.homepage           = 'http://crm114.rubyforge.org/'
-  gem.license            = 'Public domain' if gem.respond_to?(:license=)
+  gem.license            = 'Public Domain' if gem.respond_to?(:license=)
   gem.summary            = 'Ruby interface to the CRM114 Controllable Regex Mutilator text classification engine.'
   gem.description        = <<-EOF
     CRM114.rb is a Ruby interface to the CRM114 Controllable Regex
