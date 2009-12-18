@@ -6,7 +6,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.version            = '1.0.1'
   gem.date               = '2009-04-20'
   gem.homepage           = 'http://crm114.rubyforge.org/'
-  gem.license            = 'MIT' if gem.respond_to?(:license=)
+  gem.license            = 'Public domain' if gem.respond_to?(:license=)
   gem.summary            = 'Ruby interface to the CRM114 Controllable Regex Mutilator text classification engine.'
   gem.description        = <<-EOF
     CRM114.rb is a Ruby interface to the CRM114 Controllable Regex
@@ -20,7 +20,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.email              = 'arto.bendiken@gmail.com'
 
   gem.platform           = Gem::Platform::RUBY
-  gem.files              = %w(LICENSE README README.rdoc Rakefile VERSION lib/crm114.rb test/test_code_or_text.rb test/test_crm114.rb)
+  gem.files              = %w(UNLICENSE AUTHORS README README.rdoc Rakefile VERSION lib/crm114.rb test/test_code_or_text.rb test/test_crm114.rb)
   gem.files             -= %w(README.rdoc) # only for GitHub
   gem.bindir             = %q(bin)
   gem.executables        = %w()

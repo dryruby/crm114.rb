@@ -10,7 +10,7 @@ class TestCodeOrText < Test::Unit::TestCase
    @crm = Classifier::CRM114.new([:code, :text], :path => @path)
    assert_nothing_raised do
      Dir["#{@path}/../lib/*.rb"].each { |file| @crm.code! File.read(file) }
-     ['CHANGELOG', 'README', 'LICENSE'].each { |file| @crm.text! File.read(file) }
+     ['README', 'UNLICENSE'].each { |file| @crm.text! File.read(file) }
    end
   end
 
