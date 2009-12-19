@@ -32,6 +32,6 @@ GEMSPEC = Gem::Specification.new do |gem|
 
   gem.required_ruby_version    = '>= 1.8.2'
   gem.requirements             = ['CRM114']
-  gem.add_development_dependency 'rakefile'
+  gem.add_development_dependency 'bendiken-rakefile' # http://github.com/bendiken/rakefile
   gem.post_install_message     = nil
 end
