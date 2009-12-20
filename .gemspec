@@ -3,8 +3,8 @@
 
 GEMSPEC = Gem::Specification.new do |gem|
   gem.name               = 'crm114'
-  gem.version            = '1.0.1'
-  gem.date               = '2009-04-20'
+  gem.version            = '1.0.2'
+  gem.date               = '2009-12-20'
   gem.homepage           = 'http://crm114.rubyforge.org/'
   gem.license            = 'Public Domain' if gem.respond_to?(:license=)
   gem.summary            = 'Ruby interface to the CRM114 Controllable Regex Mutilator text classification engine.'
