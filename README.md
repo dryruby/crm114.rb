@@ -67,6 +67,7 @@ official release from Gemcutter, do:
 Resources
 ---------
 
+* <http://gemcutter.org/gems/crm114>
 * <http://rubyforge.org/projects/crm114>
 * <http://raa.ruby-lang.org/project/crm114/>
 * <http://www.ohloh.net/p/crm114-ruby>
