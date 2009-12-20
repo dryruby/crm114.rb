@@ -1,5 +1,5 @@
-CRM114 Controllable Regex Mutilator for Ruby
-============================================
+CRM114.rb: CRM114 Controllable Regex Mutilator for Ruby
+=======================================================
 
 This is a Ruby interface to the CRM114 Controllable Regex Mutilator, an
 advanced and fast text classifier that uses sparse binary polynomial

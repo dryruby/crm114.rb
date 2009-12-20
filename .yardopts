@@ -1,0 +1,8 @@
+--title "CRM114.rb: CRM114 Controllable Regex Mutilator for Ruby"
+--output-dir doc/yard
+--markup markdown
+--readme README.md
+-
+AUTHORS
+UNLICENSE
+VERSION
