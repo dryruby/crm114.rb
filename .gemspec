@@ -2,9 +2,10 @@
 # -*- encoding: utf-8 -*-
 
 GEMSPEC = Gem::Specification.new do |gem|
+  gem.version            = File.read('VERSION').chomp
+  gem.date               = File.mtime('VERSION').strftime('%Y-%m-%d')
+
   gem.name               = 'crm114'
-  gem.version            = '1.0.2'
-  gem.date               = '2009-12-20'
   gem.homepage           = 'http://crm114.rubyforge.org/'
   gem.license            = 'Public Domain' if gem.respond_to?(:license=)
   gem.summary            = 'Ruby interface to the CRM114 Controllable Regex Mutilator text classification engine.'
@@ -20,8 +21,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.email              = 'arto.bendiken@gmail.com'
 
   gem.platform           = Gem::Platform::RUBY
-  gem.files              = %w(UNLICENSE AUTHORS README README.md Rakefile VERSION lib/crm114.rb test/test_code_or_text.rb test/test_crm114.rb)
-  gem.files             -= %w(README.md) # only for GitHub
+  gem.files              = %w(AUTHORS README UNLICENSE VERSION lib/crm114.rb lib/crm114/version.rb test/test_code_or_text.rb test/test_crm114.rb)
   gem.bindir             = %q(bin)
   gem.executables        = %w()
   gem.default_executable = gem.executables.first
@@ -30,8 +30,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.test_files         = %w(test/test_code_or_text.rb test/test_crm114.rb)
   gem.has_rdoc           = false
 
-  gem.required_ruby_version    = '>= 1.8.2'
-  gem.requirements             = ['CRM114']
-  gem.add_development_dependency 'bendiken-rakefile' # http://github.com/bendiken/rakefile
-  gem.post_install_message     = nil
+  gem.required_ruby_version = '>= 1.8.2'
+  gem.requirements          = ['CRM114']
+  gem.post_install_message  = nil
 end
