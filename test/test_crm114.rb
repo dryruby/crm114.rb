@@ -38,12 +38,20 @@ EOT
     Dir["#{@path}/*.css"].each { |file| File.delete(file) }
   end
 
+  def test_resolution_of_popen_conflict_with_net_http
+    # make arbitrary Net:HTTP call
+    require 'net/http'
+    txt = Net::HTTP.get_response(URI.parse('http://www.google.com'))
+    # something goes nuts and popen bombs; we switched to popen3 so this should work fine now
+    assert_equal(:interesting, @crm.classify('Thus, programs must be written for people to read,').first)
+  end
+
   def test_version
     assert_match(/^[\d]+-[\w\d]+$/, Classifier::CRM114.version)
   end
 
   def test_unlearning
-    assert_raise(RuntimeError) { @crm.unlearn!(:boring, 'Lorem ipsum') }
+    assert_raise(NotImplementedError) { @crm.unlearn!(:boring, 'Lorem ipsum') }
   end
 
   def test_interesting

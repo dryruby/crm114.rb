@@ -1,5 +1,5 @@
 require 'crm114/version'
-
+require 'open3'
 module Classifier
   class CRM114
     CLASSIFICATION_TYPE = '<osb unique microgroom>'
@@ -14,7 +14,9 @@ module Classifier
     #
     # @return [String, nil]
     def self.version
-      $1 if IO.popen(CMD_CRM + ' -v', 'r') { |pipe| pipe.readline } =~ /CRM114, version ([\d\w\-\.]+)/
+      # $1 if IO.popen(CMD_CRM + ' -v', 'r') { |pipe| pipe.readline } =~ /CRM114, version ([\d\w\-\.]+)/
+      Open3.popen3(CMD_CRM + ' -v') { |stdin,stdout,stderr| stdin.close; @out = stdout.read }
+      $1 if @out =~ /CRM114, version ([\d\w\-\.]+)/
     end
 
     ##
@@ -38,7 +40,13 @@ module Classifier
     def learn!(category, text, &block)
       cmd = CMD_CRM + " '" + (OPT_LEARN % [CLASSIFICATION_TYPE, css_file_path(category)]) + "'"
       puts cmd if @debug
-      IO.popen(cmd, 'w') { |pipe| block_given? ? block.call(pipe) : pipe.write(text) }
+      Open3.popen3(cmd) do |stdin,stdout,stderr| 
+        stdin.write(text)
+        stdin.close
+        @result, @err = stdout.read, stderr.read
+        logger.error "CRM114(learn!) ERROR: #{@err}" if @err.size > 0
+      end
+      text.size
     end
 
     alias_method :train!, :learn!
@@ -63,11 +71,13 @@ module Classifier
       files = @categories.collect { |category| css_file_path(category) }
       cmd = CMD_CRM + " '" + (OPT_CLASSIFY % [CLASSIFICATION_TYPE, files.join(' '), @path.gsub(/\//, '\/'), FILE_EXTENSION]) + "'"
       puts cmd if @debug
-      result = IO.popen(cmd, 'r+') do |pipe|
-        block_given? ? block.call(pipe) : pipe.write(text)
-        pipe.close_write
-        pipe.readline unless pipe.closed? || pipe.eof?
+      stdin, stdout, stderr = Open3.popen3(cmd) do |stdin, stdout, stderr|
+        stdin.write(text)
+        stdin.close
+        @result, @err = stdout.read, stderr.read
+        logger.error "CRM114(classify) ERROR: #{@err}" if @err.size > 0
       end
+      result = @result
       return [nil, 0.0] unless result && result.include?("\t")
       result = result.split("\t")
       [result.first.to_sym, result.last.to_f]
