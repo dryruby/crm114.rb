@@ -44,7 +44,7 @@ module Classifier
         stdin.write(text)
         stdin.close
         @result, @err = stdout.read, stderr.read
-        logger.error "CRM114(learn!) ERROR: #{@err}" if @err.size > 0
+        puts "CRM114(learn!) ERROR: #{@err}" if @err.size > 0
       end
       text.size
     end
@@ -75,7 +75,7 @@ module Classifier
         stdin.write(text)
         stdin.close
         @result, @err = stdout.read, stderr.read
-        logger.error "CRM114(classify) ERROR: #{@err}" if @err.size > 0
+        puts "CRM114(classify) ERROR: #{@err}" if @err.size > 0
       end
       result = @result
       return [nil, 0.0] unless result && result.include?("\t")
